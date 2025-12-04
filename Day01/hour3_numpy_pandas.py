@@ -114,3 +114,30 @@ def load_and_preprocess(url):
 clean_df = load_and_preprocess(url)
 clean_df.shape
 
+
+# %%
+df.isnull().sum().sort_values(ascending=False).head(10)
+
+
+# %%
+df.dtypes.head(20)
+
+
+# %%
+df.shape
+
+
+# %%
+df[['tenure', 'TenureGroup']].head()
+df['AvgMonthlyCharge'].describe()
+
+
+# %%
+df[['tenure', 'TenureGroup']].head()
+
+# %%
+agg = df.groupby('TenureGroup').agg({
+    'AvgMonthlyCharge':'mean',
+    'MonthlyCharges':'median'
+})
+agg
